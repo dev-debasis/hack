@@ -17,7 +17,7 @@ export const PreFilter: React.FC<Props> = ({ teams, onUpdate }) => {
   const [filter, setFilter] = useState<FilterMode>('unfiltered');
 
   const categorized = {
-    unfiltered: teams.filter(t => t.tier === null),
+    unfiltered: teams.filter(t => t.tier === null && t.status !== 'rejected'),
     tier2: teams.filter(t => t.tier === 2 || t.tier === 3),
     rejected: teams.filter(t => t.status === 'rejected' && t.tier === null),
   };
